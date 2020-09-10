@@ -1,0 +1,21 @@
+{
+  "name": "sxm_vuepress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.4.1",
+    "vuepress-theme-reform": "^1.4.6"
+  },
+  "dependencies": {
+    "moment": "^2.25.3"
+  }
+}
