@@ -1,4 +1,3 @@
-
 module.exports = {
     title: 'MrMJ `blog', //标题
     description: 'MrMJ的个人博客',//网站描述
@@ -18,7 +17,6 @@ module.exports = {
         lineNumbers: true // 代码块显示行号
     },
     themeConfig: {
-        //lastUpdated: '上次更新时间',
         prevLinks: true,
         smoothScroll: true,//页面滚动效果
         navbar: true,
@@ -26,6 +24,7 @@ module.exports = {
         sidebar: 'auto',//侧边栏自动匹配标题
         search: true,//搜索
         searchMaxSuggestions: 10,
+        lastUpdated: '上次更新时间',//文章时间
         tags:"tags",
         nav: [
             { text: '主页', link: '/' },
@@ -49,18 +48,6 @@ module.exports = {
                         items:[
                             { text: 'Vue', link: '/frame/Vue/' },
                             { text: 'Webpack', link: '/frame/Webpack/' },
-                        ]
-                    },
-                    { text:'Vue生态系统',
-                        items:[
-                            { text: 'Vuex', link: '/frame/Vue/system/vuex/' },
-                            { text: 'Webpack', link: '/frame/Webpack/' },
-                        ]
-                    },
-                    { text:'vue插件',
-                        items:[
-                            { text: 'vue-awesome-swiper', link: '/frame/Vue/plugIn/vueAwesomeSwiper/' },
-                            { text: 'jQuery', link: '/frame/Vue/plugIn/jQuery/' }
                         ]
                     }
                 ]
