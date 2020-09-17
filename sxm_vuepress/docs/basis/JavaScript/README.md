@@ -183,7 +183,7 @@ console.log(NaN == NaN) // => false
 console.log(NaN === NaN) // => false
 ```
 
-### toSting和valueOf
+### 3.toSting和valueOf
 所有对象继承了这两个转换方法
 toSting:返回一个反映这个对象的字符串
 valueOf:返回它相应的原始值
@@ -235,4 +235,84 @@ console.log((new Date).valueOf()) // => 1517824550394  //返回的并不是字�
 console.log(/\d+/g.valueOf()) // => 456  当我们不设置时valueOf时，正常返回的正则表式本身：/\d+/g，只是我们设置了 Object.prototype.valueOf 所以返回的时：456
 console.log(Math.valueOf()) // => 456 同上
 console.log(function(){console.log(1)}.valueOf()) // => 456 同上
+```
+### 4.判断是否为数组
+Array.isArray()
+```javascript
+let arr = [];
+Array.isArray(arr)
+```
+instanceof
+```javascript
+let arr = [];
+arr instanceof Array
+```
+### 5.二维数组
+```javascript
+let arr = [1,[2,3],4,[5,6]]
+//1.普通循环
+function flatten (org){
+    let newArray = [];
+    for(let i=0;i<org.lenght;i++){
+        let item = org[i]
+        if(Array.isArray(item)){
+            newArray = newArray.concat(flatten(item))
+        }else{
+            newArray.puah(item)
+        }
+        return newArray
+    }
+}
+flatten(arr)
+//2.Array.prototype.flat()用于将嵌套的数组“拉平”，变成一维数组。该方法返回一个新数组，对原数据没有影响。flat()默认只会“拉平”一层，如果想要“拉平”多层的嵌套数组，可以将flat()方法的参数写成一个整数，表示想要拉平的层数，默认为1。
+let newArray = arr.flat()
+//3.toString()
+let newArray = arr.toString().split(',').map(item =>Number(item))
+//4.reduce
+function fn(arr){
+    return arr.reduce((res,next)=>{
+        return res.concat(next)
+    },[])
+}
+```
+### 6.判断字符串出现最多的次数
+```javascript
+let str = 'aassffigbdldddddd';
+//1.循环
+let obj = {};
+for(i=0;i<str.lenght;i++){
+    if(obj[str[i]]){
+        obj[str[i]]+=1
+    }else{
+        obj[str[i]] = 1
+    }
+}
+let maxStr='';
+for(let k in obj){
+    if{maxStr < obj[k]}{
+        maxStr = obj[k]
+    }
+}
+//2.reduce
+let map = str.split('').reduce((t,v) =>{
+    t[v] = t[v] ? ++ t[v] : 1
+    return t
+},{})
+```
+### 7.数组去重
+```javascript
+//1.indexOf
+let arr = [1,2,3,3,2,4,5,6,6,1]
+function fn(arr){
+    let newArray = [];
+    for(let i = 0;i<arr.lenght;i++){
+        if(newArray.indexOf(arr[i]) === -1){
+            nawArray.push(arr[i])
+        }
+    }
+    return newArray
+}
+fn(arr)
+//2.new Set()
+let newArray = [...new Set(arr)]
 ```
